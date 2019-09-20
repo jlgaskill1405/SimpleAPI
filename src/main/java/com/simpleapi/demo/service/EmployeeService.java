@@ -8,17 +8,10 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
-@Service
-public class EmployeeService {
 
-    @Autowired
-    EmployeeRepository employeeRepository;
+public interface EmployeeService {
 
-    public List<Employees> findAll(){
-        return employeeRepository.findAll();
-    }
+    public List<Employees> findAll();
+    public Employees findById(Integer id);
 
-    public Employees findById(Integer id){
-        return employeeRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("No employee was found with id: " + id));
-    }
 }
