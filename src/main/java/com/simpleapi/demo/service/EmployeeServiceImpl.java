@@ -1,5 +1,6 @@
 package com.simpleapi.demo.service;
 
+import com.simpleapi.demo.entity.EmployeeWrapper;
 import com.simpleapi.demo.entity.Employees;
 import com.simpleapi.demo.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,9 @@ public class EmployeeServiceImpl implements EmployeeService{
     EmployeeRepository employeeRepository;
 
     @Override
-    public List<Employees> findAll() {
-        return employeeRepository.findAll();
+    public EmployeeWrapper findAll() {
+        List<Employees> employeesList = employeeRepository.findAll();
+        return new EmployeeWrapper(employeesList);
     }
 
     @Override

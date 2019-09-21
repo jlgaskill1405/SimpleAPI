@@ -1,5 +1,6 @@
 package com.simpleapi.demo.controller;
 
+import com.simpleapi.demo.entity.EmployeeWrapper;
 import com.simpleapi.demo.entity.Employees;
 import com.simpleapi.demo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class EmployeesController {
     EmployeeService employeeService;
 
     @GetMapping("/all")
-    public List<Employees> getAll(){
+    public EmployeeWrapper getAll(){
         return employeeService.findAll();
     }
 
