@@ -1,9 +1,11 @@
 package com.simpleapi.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.List;
 
 public class EmployeeWrapper {
-
+    @JsonProperty("employees")
     private List<Employees> employeesList;
 
     public EmployeeWrapper() {
